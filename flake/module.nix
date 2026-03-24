@@ -1,7 +1,11 @@
 { self, ... }: {
         flake.nixosModules.init = { lib, pkgs, ... }: {
                 options.programs.init = {
-                        enable = lib.mkEnableOption "enable custom session init system";
+                        enable = lib.mkOption {
+                                type = lib.types.bool;
+                                default = false;
+                                description = "wether to enable the program or not";
+                        };
 
                         package = lib.mkOption {
                                 type = lib.types.package;
