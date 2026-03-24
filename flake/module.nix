@@ -14,11 +14,9 @@
                         };
 
                         defaults = {
-                                initFile = lib.mkOption {
+                                filePath = lib.mkOption {
                                         type = lib.types.str;
-                                        defualt = ''
-                                                ${pkgs.bash}
-                                        '';
+                                        default = "$HOME/.init.sh";
                                 };
                         };
                 };
