@@ -27,8 +27,4 @@
                         };
                 };
         };
-
-        flake.homeModules.init = {
-
-        };
 }
