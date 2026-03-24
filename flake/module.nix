@@ -1,6 +1,6 @@
 { self, ... }: {
-        flake.nixosModules.init = { lib, pkgs, ... }: {
-                options.programs.init = {
+        flake.nixosModules.winit = { lib, pkgs, ... }: {
+                options.programs.winit = {
                         enable = lib.mkOption {
                                 type = lib.types.bool;
                                 default = false;
@@ -9,8 +9,8 @@
 
                         package = lib.mkOption {
                                 type = lib.types.package;
-                                default = self.packages.init;
-                                description = "init package to use";
+                                default = self.packages.winit;
+                                description = "winit package to use";
                         };
 
                         defaults = {

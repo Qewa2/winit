@@ -1,13 +1,13 @@
 {
         perSystem = { pkgs, config, ... }: let
-                        filePath = config.programs.init.defaults.filePath or "$HOME/.init.sh";
-                        default = config.programs.init.defaults.script or "${pkgs.lib.getExe pkgs.bash}";
+                        filePath = config.programs.winit.defaults.filePath or "$HOME/.init.sh";
+                        default = config.programs.winit.defaults.script or "${pkgs.lib.getExe pkgs.bash}";
                 in rec
                 {
-                        packages.default = packages.init;
+                        packages.default = packages.winit;
 
-                        packages.init = pkgs.writeShellApplication {
-                                name = "init";
+                        packages.winit = pkgs.writeShellApplication {
+                                name = "winit";
 
                                 runtimeInputs = with pkgs; [ coreutils bash ];
 

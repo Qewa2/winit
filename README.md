@@ -1,4 +1,4 @@
-# init
+# winit
 my custom session init system
 
 you can include it like this:
@@ -9,7 +9,7 @@ you can include it like this:
         inputs = {
                 nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
-                init = {
+                winit = {
                         url = "github:Qewa2/init";
                         inputs.nixpkgs.follows = "nixpkgs";
                 };
@@ -20,10 +20,10 @@ you can include it like this:
 
 this will give you the following options:
 ```
-programs.init = {
+programs.winit = {
         enable = true;
 
-        package = inputs.init.packages.init;
+        package = inputs.winit.packages.winit;
 
         defaults = {
                 filePath = "$HOME/.init.sh";
