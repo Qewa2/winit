@@ -1,5 +1,6 @@
 {
-        perSystem = { pkgs, config, ... }: {
+        perSystem = { pkgs, config, ... }: rec {
+                packages.default = packages.init;
                 packages.init = pkgs.writeShellApplication {
                         name = "init";
 
@@ -7,16 +8,16 @@
                                 coreutils
                         ];
 
+                        extraShellCheckFlags = [ "-e" "SC1091" ];
+
                         text = ''
                                 #!${pkgs.bash}
 
 
-                                if [ -f $HOME/.init ]; then
-                                        source $HOME/.init
+                                if [ -f "$HOME/.init" ]; then
+                                        source "$HOME/.init.sh"
                                 else
-                                        if [ ${config.programs.init.enable} == true]; then
-                                                source ${config.programs.init.defaultFile}
-                                        fi
+                                        echo "$HOME/.init.sh does NOT exist"
                                 fi
                         '';
                 };
